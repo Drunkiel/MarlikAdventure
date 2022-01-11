@@ -27,7 +27,6 @@ public class OpeningDoors : MonoBehaviour
 
     void OpenDoor(){
         if(Doors.position.x <= StartPlace + 2){
-             
             Doors.Translate(new Vector2(1 * Speed * Time.deltaTime, 0));
         }
     }
