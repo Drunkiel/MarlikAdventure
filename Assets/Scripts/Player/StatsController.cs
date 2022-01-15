@@ -19,6 +19,12 @@ public class StatsController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    public void TakeDamage(float amout){
+        Health -= amout;
+        SpriteRenderer Sprites = GetComponent<SpriteRenderer> ();
+        Sprites.color = Color.Lerp(Color.white, Color.red, Mathf.PingPong(Time.time, 1));
     }
 }
