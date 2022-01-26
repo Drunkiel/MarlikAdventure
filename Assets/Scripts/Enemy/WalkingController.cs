@@ -38,8 +38,8 @@ public class WalkingController : MonoBehaviour
 
     void FollowPlayer(){
         GameObject PlayerPos = GameObject.FindGameObjectWithTag("Player");
-        Vector3 directionWeShouldGo = (PlayerPos.transform.position - transform.position).normalized;
+        Vector3 directionShouldGo = (PlayerPos.transform.position - transform.position).normalized;
 
-        transform.Translate(directionWeShouldGo * Time.deltaTime);
+        transform.Translate(directionShouldGo * Speed * Time.deltaTime);
     }
 }
