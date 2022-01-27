@@ -29,7 +29,7 @@ public class WalkingController : MonoBehaviour
             xmov = Mathf.Round(Random.Range(-1, 1));
             ymov = Mathf.Round(Random.Range(-1, 1));
         }   else{
-
+            
             transform.Translate(xmov * Speed * Time.deltaTime, ymov * Speed * Time.deltaTime, 0);
 
             Cooldown -= Time.deltaTime;
