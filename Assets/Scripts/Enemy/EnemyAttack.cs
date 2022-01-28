@@ -16,6 +16,7 @@ public class EnemyAttack : MonoBehaviour
     void Start()
     {
         ResCooldown = Cooldown;
+        Damage = GetComponent<EnemyStats> ().Damage;
     }
 
     // Update is called once per frame
