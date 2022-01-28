@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class WalkingController : MonoBehaviour
 {
-    public float Speed;
     public bool isTriggered;
+    public float Speed;
 
     public float RandomNum;
     public float xmov;
