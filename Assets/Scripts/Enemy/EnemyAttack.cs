@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     public bool isTriggered;
-    public float Damage;
+    private float Damage;
     public float AttackRange;
 
     public float Cooldown;
