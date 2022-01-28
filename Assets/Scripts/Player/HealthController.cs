@@ -15,7 +15,7 @@ public class HealthController : MonoBehaviour
         stats = Player.GetComponent<StatsController> ();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         HeartUpdate();
     }
@@ -24,6 +24,16 @@ public class HealthController : MonoBehaviour
         HealthBar.maxValue = stats.MaxHealth;
         HealthBar.value = stats.Health;
 
-        // FillBar.color = Color.white;
+        if(stats.Health <= stats.MaxHealth * 1f){
+            // FillBar.color = new Color(150f, 0.1f, 0f);
+            FillBar.color = Color.red;
+
+        }   else if(stats.Health <= stats.MaxHealth * 0.5f){
+            // FillBar.color = new Color(216f, 123f, 0f);
+            FillBar.color = Color.red * Color.yellow;
+
+        }   else if(stats.Health <= stats.MaxHealth * 0.25f){
+            FillBar.color = Color.yellow;
+        }
     }
 }
