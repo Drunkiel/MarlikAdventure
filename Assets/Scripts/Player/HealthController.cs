@@ -28,17 +28,14 @@ public class HealthController : MonoBehaviour
 
         if(stats.Health <= stats.MaxHealth && stats.Health > stats.MaxHealth * 0.5f){
             FillBar.color = FullHp;
-            print("a");
-
         } 
+        
         if(stats.Health <= stats.MaxHealth * 0.5f && stats.Health > stats.MaxHealth * 0.25f){
             FillBar.color = HalfHp;
-            print("b");
-
         }
+
         if(stats.Health <= stats.MaxHealth * 0.25f){
             FillBar.color = QuartHp;
-            print("c");
         }
     }
 }

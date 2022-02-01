@@ -5,6 +5,7 @@ public class StatsController : MonoBehaviour
 {
     public float Health;
     public float MaxHealth;
+    public float Speed;
     public int Level;
     public float Experience;
     public float ExpToNextLvl;
