@@ -9,12 +9,12 @@ public class EnemyHealthBar : MonoBehaviour
     public Color FullHp, HalfHp, QuartHp;
 
     EnemyStats stats;
-    HealthController contr;
+    HealthUpdate Updater;
 
     // Start is called before the first frame update
     void Start()
     {
-        contr = GameObject.FindGameObjectWithTag("MainCamera").transform.GetChild(0).GetComponent<HealthController> ();
+        Updater = GameObject.FindGameObjectWithTag("MainCamera").transform.GetChild(0).GetComponent<HealthUpdate> ();
         stats = this.transform.parent.transform.GetChild(0).GetComponent<EnemyStats> ();
         HealthBar = this.transform.GetChild(0).GetComponent<Slider> ();
         FillBar = this.transform.GetChild(0).GetChild(1).GetChild(0).GetComponent<Image> ();
@@ -22,6 +22,6 @@ public class EnemyHealthBar : MonoBehaviour
 
     void FixedUpdate()
     {
-        contr.HeartUpdate();
+         Updater.HeartUpdate(HealthBar, FillBar, stats.MaxHealth, stats.Health, FullHp, HalfHp, QuartHp);
     }
 }
