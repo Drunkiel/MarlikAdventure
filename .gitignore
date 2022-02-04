@@ -60,6 +60,7 @@ ExportedObj/
 *.settings
 *.dwlt
 *.tss
+*.Flow
 
 # Unity3D generated meta files
 *.pidb.meta
