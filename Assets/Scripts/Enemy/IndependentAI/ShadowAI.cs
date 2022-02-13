@@ -3,6 +3,9 @@ using UnityEngine;
 public class ShadowAI : MonoBehaviour
 {
     public bool isLightNearby;
+    public bool isTriggered;
+
+    public LayerMask LayerToSearch;
 
     // Start is called before the first frame update
     void Start()
@@ -13,7 +16,11 @@ public class ShadowAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isLightNearby = transform.GetChild(1).GetComponent<TriggerController> ().isTriggered;
+        isTriggered = transform.GetChild(1).GetComponent<TriggerController> ().isTriggered;
+
+        if(isTriggered){
+            SearchLantern();
+        }
 
         if(isLightNearby){
             RandomTp();
@@ -27,5 +34,15 @@ public class ShadowAI : MonoBehaviour
         float RandomYPos = Mathf.Round(Random.Range(bodyPos.position.y - 5, bodyPos.position.y + 5));
 
         bodyPos.position = new Vector3(RandomXPos, RandomYPos, 0);
+        isLightNearby = false;
+    }
+
+    void SearchLantern(){
+        Collider2D[] hitLantern = Physics2D.OverlapCircleAll(transform.position, 1, LayerToSearch);
+
+        foreach(Collider2D lantern in hitLantern){
+
+            isLightNearby = lantern.GetComponent<LanternController> ().isTurnedOn;          
+        }
     }
 }
