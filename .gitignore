@@ -61,6 +61,7 @@ ExportedObj/
 *.dwlt
 *.tss
 *.Flow
+*.vscode
 
 # Unity3D generated meta files
 *.pidb.meta
