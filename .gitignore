@@ -17,6 +17,7 @@ Assets/[Ss]prites/
 Assets/[Ss]ettings/
 Assets/[Ss]cenes
 /[Uu]serSettings/
+Assets/[Tt]extMeshPro/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
@@ -62,6 +63,7 @@ ExportedObj/
 *.tss
 *.Flow
 *.vscode
+*.ttf
 
 # Unity3D generated meta files
 *.pidb.meta
