@@ -23,11 +23,11 @@ public class WalkingController : MonoBehaviour
         if(isTriggered){
             FollowPlayer();
         }   else{
-            RandomMovemnt();
+            RandomMovement();
         } 
     }
 
-    void RandomMovemnt(){
+    void RandomMovement(){
         if(Cooldown <= 0){      
 
             Cooldown = Mathf.Round(Random.Range(3, 8));
