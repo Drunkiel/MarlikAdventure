@@ -6,16 +6,16 @@ public class OpenCloseUI : MonoBehaviour
     public GameObject UIObject;
     public bool isUIOpen;
 
-    private bool isTriggered;
+    public bool isTriggered;
     public bool EnableAutoClosing;
     public GameObject ObjectToTest;
 
     // Update is called once per frame
     void Update()
     {    
-        if(Input.GetKeyDown(KeyCode.F) && isTriggered){
-            isUIOpen = !isUIOpen;
-        }
+        // if(Input.GetKeyDown(KeyCode.F) && isTriggered){
+        //     isUIOpen = !isUIOpen;
+        // }
 
         OpenClose();
         if(EnableAutoClosing){

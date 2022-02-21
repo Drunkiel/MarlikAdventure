@@ -3,17 +3,19 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
     public bool isPaused;
-    // Start is called before the first frame update
+
+    OpenCloseUI UIObject;
+
     void Start()
     {
-        
+        UIObject = GetComponent<OpenCloseUI> ();
     }
 
     // Update is called once per frame
     void Update()
     {
-        isPaused = GetComponent<OpenCloseUI> ().isUIOpen;
-        
+        Controller();
+
         if(isPaused){
             Pause();
         }   else{
@@ -21,11 +23,20 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    void Controller(){
+        if(Input.GetKeyDown(KeyCode.Escape)){
+            UIObject.isUIOpen = !UIObject.isUIOpen;
+            isPaused = UIObject.isUIOpen;
+        }
+    }
+
     void Pause(){
         Time.timeScale = 0f;
     }
 
-    void Resume(){
+    public void Resume(){
+        isPaused = false;
+        UIObject.isUIOpen = false;
         Time.timeScale = 1f;
     }
 }
