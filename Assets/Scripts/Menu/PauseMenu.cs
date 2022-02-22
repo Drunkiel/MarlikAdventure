@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -38,5 +39,9 @@ public class PauseMenu : MonoBehaviour
         isPaused = false;
         UIObject.isUIOpen = false;
         Time.timeScale = 1f;
+    }
+
+    public void BackButton (){
+        SceneManager.LoadScene(0);
     }
 }
