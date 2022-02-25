@@ -20,7 +20,7 @@ public class PauseMenu : MonoBehaviour
         if(isPaused){
             Pause();
         }   else{
-            Resume();
+            ResumeButton();
         }
     }
 
@@ -35,11 +35,13 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-    public void Resume(){
+    public void ResumeButton(){
         isPaused = false;
         UIObject.isUIOpen = false;
         Time.timeScale = 1f;
     }
+
+    public void OptionsButton(){}
 
     public void BackButton (){
         SceneManager.LoadScene(0);
