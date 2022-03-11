@@ -23,8 +23,13 @@ public class ShadowAI : MonoBehaviour
         }
 
         if(isLightNearby){
-            RandomTp();
+            Death();
         }
+    }
+
+    void Death(){
+        Destroy(this.gameObject, 0.5f);
+        isLightNearby = false;
     }
 
     void RandomTp(){
