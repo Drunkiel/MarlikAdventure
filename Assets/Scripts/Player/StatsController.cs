@@ -30,8 +30,8 @@ public class StatsController : MonoBehaviour
         Health = MaxHealth;
     }
 
-    public void TakeDamage(float amout){
-        Health -= amout;
+    public void TakeDamage(float amount){
+        Health -= amount;
         SpriteRenderer Sprites = GetComponent<SpriteRenderer> ();
         Sprites.color = Color.Lerp(Color.white, Color.red, Mathf.PingPong(Time.time, 0.4f));
     }

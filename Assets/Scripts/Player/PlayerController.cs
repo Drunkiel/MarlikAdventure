@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
 
     void Movement(){
 
-        //Inicjalizing inputs
+        //Initializing inputs
         float Horizontal = Input.GetAxis("Horizontal");
         float Vertical = Input.GetAxis("Vertical");
 

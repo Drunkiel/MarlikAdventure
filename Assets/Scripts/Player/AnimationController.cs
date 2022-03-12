@@ -18,7 +18,7 @@ public class AnimationController : MonoBehaviour
     }
 
     void Animating(){
-        //Inicjalizing inputs
+        //Initializing inputs
         Move.x = Input.GetAxis("Horizontal"); 
         Move.y = Input.GetAxis("Vertical");
 
