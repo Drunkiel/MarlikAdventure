@@ -22,7 +22,11 @@ public class ShadowBossAI : MonoBehaviour
 
             for (int i = 0; i < AmountOfMobs; i++)
             {
-                Instantiate(Shadow, transform.position, Quaternion.identity);
+                float XPos = Mathf.Round(Random.Range(-2, 2));
+                float YPos = Mathf.Round(Random.Range(-2, 2));
+                Vector2 RandomPos = new Vector2(transform.position.x + XPos, transform.position.y + YPos); 
+
+                Instantiate(Shadow, RandomPos, Quaternion.identity);
             }
         }   else{
 
