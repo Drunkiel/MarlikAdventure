@@ -8,10 +8,18 @@ public class ShadowBossAI : MonoBehaviour
     public float Cooldown;
     public float ResCooldown;
 
+    public GameObject[] Lamps;
+
+    void Start()
+    {
+        Lamps = GameObject.FindGameObjectsWithTag("LightSource");
+    }
+
     // Update is called once per frame
     void Update()
     {
         SpawnMobs();
+        Lamp();
     }
 
     void SpawnMobs(){
@@ -31,6 +39,19 @@ public class ShadowBossAI : MonoBehaviour
         }   else{
 
             Cooldown -= Time.deltaTime;
+        }
+    }
+
+    void Lamp(){
+        foreach (GameObject isLight in Lamps)
+        {
+            if(!isLight.GetComponent<LanternController> ().isTurnedOn){
+
+                print("false");
+                break;
+            }   else{
+                print("true");
+            }
         }
     }
 }
