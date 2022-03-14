@@ -9,6 +9,7 @@ public class ShadowBossAI : MonoBehaviour
     public float ResCooldown;
 
     public GameObject[] Lamps;
+    private bool isPlayer;
 
     void Start()
     {
@@ -18,8 +19,13 @@ public class ShadowBossAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        isPlayer = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MapLocalizationController> ().isPlayerThere[0];
+
         SpawnMobs();
-        Lamp();
+
+        if(isPlayer){
+            Lamp();
+        } 
     }
 
     void SpawnMobs(){
