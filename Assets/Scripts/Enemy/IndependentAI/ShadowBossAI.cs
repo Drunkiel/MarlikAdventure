@@ -21,9 +21,8 @@ public class ShadowBossAI : MonoBehaviour
     {
         isPlayer = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MapLocalizationController> ().isPlayerThere[0];
 
-        SpawnMobs();
-
         if(isPlayer){
+            SpawnMobs();
             Lamp();
         } 
     }
