@@ -7,6 +7,7 @@ public class LanternController : MonoBehaviour
     public bool isTurnedOn;
     public bool isTriggered;
 
+    private int ShadowCounter;
     private float Cooldown = 5f;
 
     // Start is called before the first frame update
@@ -21,10 +22,8 @@ public class LanternController : MonoBehaviour
         isTriggered = GetComponent<TriggerController> ().isTriggered;
 
         if(isTriggered){
-
             TimerToTurnOn();
         }   else{
-
             Cooldown = 5f;
         }
     }
@@ -38,5 +37,18 @@ public class LanternController : MonoBehaviour
 
             Cooldown -= Time.deltaTime;
         }
+    }
+
+    void CounterController(){
+        if(ShadowCounter >= 5) {
+            Light.SetActive(false);
+            Cooldown = 5;
+            isTurnedOn = false;
+            ShadowCounter = 0;
+        }
+    }
+
+    public void Counter(){
+        ShadowCounter++;
     }
 }
