@@ -6,6 +6,7 @@ public class ShadowAI : MonoBehaviour
     public bool isTriggered;
 
     public LayerMask LayerToSearch;
+    LanternController Lantern;
 
     // Update is called once per frame
     void Update()
@@ -22,8 +23,9 @@ public class ShadowAI : MonoBehaviour
     }
 
     void Death(){
-        Destroy(this.gameObject, 0.5f);
-        isLightNearby = false;
+        Destroy(this.gameObject, 0.5f);   
+        Lantern.Counter();
+        gameObject.transform.GetChild(1).GetComponent<CircleCollider2D>().enabled = false;
     }
 
     void SearchLantern(){
@@ -31,7 +33,8 @@ public class ShadowAI : MonoBehaviour
 
         foreach(Collider2D lantern in hitLantern){
 
-            isLightNearby = lantern.GetComponent<LanternController> ().isTurnedOn;          
+            Lantern = lantern.GetComponent<LanternController> ();
+            isLightNearby = Lantern.isTurnedOn;          
         }
     }
 }
