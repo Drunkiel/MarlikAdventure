@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShadowBossAI : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class ShadowBossAI : MonoBehaviour
     private bool isPlayer;
 
     EnemyStats Stats;
+    public Text BossDeathText;
 
     void Start()
     {
@@ -28,6 +30,10 @@ public class ShadowBossAI : MonoBehaviour
             SpawnMobs();
             Lamp();
         } 
+
+        if(Stats.Health <= 0){
+            Death();
+        }
     }
 
     void SpawnMobs(){
@@ -46,6 +52,18 @@ public class ShadowBossAI : MonoBehaviour
             }
         }   else{
 
+            Cooldown -= Time.deltaTime;
+        }
+    }
+
+    void Death(){
+        BossDeathText.enabled = true;
+
+        if(Cooldown <= 0){      
+            BossDeathText.enabled = false;
+            
+        }   else{
+            BossDeathText.text = "Random text";
             Cooldown -= Time.deltaTime;
         }
     }
