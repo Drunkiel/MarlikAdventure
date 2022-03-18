@@ -13,11 +13,13 @@ public class ShadowBossAI : MonoBehaviour
     private bool isPlayer;
 
     EnemyStats Stats;
+    RandomTextPicker RandomText;
     public Text BossDeathText;
 
     void Start()
     {
         Lamps = GameObject.FindGameObjectsWithTag("LightSource");
+        RandomText = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<RandomTextPicker> ();
         Stats = GetComponent<EnemyStats> ();
     }
 
@@ -63,7 +65,7 @@ public class ShadowBossAI : MonoBehaviour
             BossDeathText.enabled = false;
             
         }   else{
-            BossDeathText.text = "Random text";
+            RandomText.RandomPick(BossDeathText, false);
             Cooldown -= Time.deltaTime;
         }
     }
