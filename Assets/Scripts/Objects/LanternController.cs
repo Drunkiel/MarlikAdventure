@@ -21,6 +21,7 @@ public class LanternController : MonoBehaviour
     {
         isTriggered = GetComponent<TriggerController> ().isTriggered;
 
+        CounterController();
         if(isTriggered){
             TimerToTurnOn();
         }   else{

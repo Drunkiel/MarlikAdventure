@@ -26,6 +26,7 @@ public class ShadowAI : MonoBehaviour
         Destroy(this.gameObject, 0.5f);   
         Lantern.Counter();
         gameObject.transform.GetChild(1).GetComponent<CircleCollider2D>().enabled = false;
+        isLightNearby = false;
     }
 
     void SearchLantern(){
