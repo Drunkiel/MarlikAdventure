@@ -11,9 +11,12 @@ public class ShadowBossAI : MonoBehaviour
     public GameObject[] Lamps;
     private bool isPlayer;
 
+    EnemyStats Stats;
+
     void Start()
     {
         Lamps = GameObject.FindGameObjectsWithTag("LightSource");
+        Stats = GetComponent<EnemyStats> ();
     }
 
     // Update is called once per frame
@@ -55,6 +58,7 @@ public class ShadowBossAI : MonoBehaviour
                 print("false");
                 break;
             }   else{
+                Stats.Health -= Lamps.Length;
                 print("true");
             }
         }
