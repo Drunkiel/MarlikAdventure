@@ -6,6 +6,11 @@ public class RandomTextPicker : MonoBehaviour
     public string[] PlayerDeathTexts;
     public string[] BossDeathTexts;
 
+    [TextArea(2,10)]
+    public string TalkHint;
+    [TextArea(2,10)]
+    public string PickupHint;
+
     public void RandomPick(Text UIText, bool Player){
 
         if(Player){

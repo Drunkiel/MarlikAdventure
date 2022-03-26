@@ -8,7 +8,7 @@ public class ObjectShower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isTriggered = GetComponent<TriggerController> ().isTriggered;
+        isTriggered = GetComponent<TagChecker> ().isTriggered;
 
         if(isTriggered){
             ObjectToShow.SetActive(true);
