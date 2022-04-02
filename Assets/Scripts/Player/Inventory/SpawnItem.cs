@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class SpawnItem : MonoBehaviour
 {
-    public GameObject item;
+    public GameObject Item;
 
-    public void SpawnDroppedItem() {
-        Instantiate(item, new Vector2(0, 0), Quaternion.identity);
+    public void SpawnDroppedItem(GameObject Item) {
+        Transform Player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>  ();
+        Instantiate(Item, Player.position, Quaternion.identity);
     }
 }
 
