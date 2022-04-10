@@ -4,7 +4,7 @@ using UnityEngine;
 public class DataToSave : MonoBehaviour
 {
     public Vector2 PlayerPos;
-    public float PlayerCash;
+    public int PlayerCash;
     public float Experience;
 
     public int[] inventoryItems;

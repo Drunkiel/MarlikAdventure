@@ -24,6 +24,10 @@ public class DataManager : MonoBehaviour
     }
 
     public void LoadGame(){
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Transform> ().position = gameData.PlayerPos;
+        Stats.Cash = gameData.PlayerCash;
+        Stats.Experience = gameData.Experience;
+
         itemsData.LoadItems();
     }
 }

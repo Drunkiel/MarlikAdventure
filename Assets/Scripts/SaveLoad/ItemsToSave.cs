@@ -2,15 +2,17 @@ using UnityEngine;
 
 public class ItemsToSave : MonoBehaviour
 {
-    DataToSave gameData;
     public GameObject[] allGameItems;
     private GameObject[] invSlots;
+    DataToSave gameData;
+    InventoryController invController;
 
     // Start is called before the first frame update
     void Start()
     {
         gameData = GetComponent<DataToSave> ();
-        invSlots = GameObject.FindGameObjectsWithTag("Slot");
+        invController = GameObject.FindGameObjectWithTag("Player").GetComponent<InventoryController> ();
+        invSlots = invController.Slots;
     }
 
     public void SaveItems(){
@@ -31,6 +33,7 @@ public class ItemsToSave : MonoBehaviour
 
             if(gameData.inventoryItems[i] != 0){
                 Instantiate(allGameItems[gameData.inventoryItems[i]], invSlots[i].transform, false);
+                invController.isFull[i] = true;
             }
         }
     }
