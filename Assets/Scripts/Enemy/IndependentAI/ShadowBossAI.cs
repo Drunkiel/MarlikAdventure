@@ -74,12 +74,9 @@ public class ShadowBossAI : MonoBehaviour
         foreach (GameObject isLight in Lamps)
         {
             if(!isLight.GetComponent<LanternController> ().isTurnedOn){
-
-                print("false");
                 break;
             }   else{
                 Stats.Health -= Lamps.Length;
-                print("true");
             }
         }
     }

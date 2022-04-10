@@ -6,4 +6,6 @@ public class DataToSave : MonoBehaviour
     public Vector2 PlayerPos;
     public float PlayerCash;
     public float Experience;
+
+    public int[] inventoryItems;
 }
