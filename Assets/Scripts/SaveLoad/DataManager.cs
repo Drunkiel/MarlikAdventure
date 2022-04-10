@@ -24,6 +24,6 @@ public class DataManager : MonoBehaviour
     }
 
     public void LoadGame(){
-        
+        itemsData.LoadItems();
     }
 }
