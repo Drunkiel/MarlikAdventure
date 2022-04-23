@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     void Start(){
 
         rgBody = GetComponent<Rigidbody2D> ();
-        Speed = GetComponent<StatsController> ().Speed;
+        Speed = GetComponent<StatsController> ().speed;
     }
 
     // Update is called once per frame

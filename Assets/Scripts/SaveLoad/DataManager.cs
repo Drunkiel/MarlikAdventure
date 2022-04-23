@@ -2,31 +2,31 @@ using UnityEngine;
 
 public class DataManager : MonoBehaviour
 {
-    private Vector2 PlayerPos;
+    private Vector2 playerPos;
 
     DataToSave gameData;
     ItemsToSave itemsData;
-    StatsController Stats;
+    StatsController stats;
 
     void Start()
     {
         gameData= GetComponent<DataToSave> ();
         itemsData = GetComponent<ItemsToSave> ();
-        Stats = GameObject.FindGameObjectWithTag("Player").GetComponent<StatsController> ();
+        stats = GameObject.FindGameObjectWithTag("Player").GetComponent<StatsController> ();
     }
 
     public void SaveGame(){
-        gameData.PlayerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform> ().position;
-        gameData.PlayerCash = Stats.Cash;
-        gameData.Experience = Stats.Experience;
+        gameData.playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform> ().position;
+        gameData.playerCash = stats.cash;
+        gameData.experience = stats.experience;
 
         itemsData.SaveItems();
     }
 
     public void LoadGame(){
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Transform> ().position = gameData.PlayerPos;
-        Stats.Cash = gameData.PlayerCash;
-        Stats.Experience = gameData.Experience;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Transform> ().position = gameData.playerPos;
+        stats.cash = gameData.playerCash;
+        stats.experience = gameData.experience;
 
         itemsData.LoadItems();
     }

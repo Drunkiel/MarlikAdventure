@@ -1,37 +1,39 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class StatsController : MonoBehaviour
 {
-    public float Health;
-    public float MaxHealth;
-    public float Speed;
-    public int Level;
-    public float Experience;
-    public float ExpToNextLvl;
-    public int Cash;
+    public float health;
+    public float maxHealth;
+    public int energy;
+    public int maxEnergy;
+    public float speed;
+    public int level;
+    public float experience;
+    public float expToNextLvl;
+    public int cash;
 
     // Start is called before the first frame update
     void Start()
     {
-        MaxHealth = Health;
+        maxHealth = health;
+        energy = maxEnergy;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Health < 0){
+        if(health <= 0 && energy <= 0){
             PlayerDeath();
         }
     }
 
     void PlayerDeath(){
         //for now
-        Health = MaxHealth;
+        health = maxHealth;
     }
 
     public void TakeDamage(float amount){
-        Health -= amount;
+        health -= amount;
         SpriteRenderer Sprites = GetComponent<SpriteRenderer> ();
         Sprites.color = Color.Lerp(Color.white, Color.red, Mathf.PingPong(Time.time, 0.4f));
     }

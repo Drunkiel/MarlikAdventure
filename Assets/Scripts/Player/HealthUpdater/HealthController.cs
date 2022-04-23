@@ -20,6 +20,6 @@ public class HealthController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Updater.HeartUpdate(HealthBar, FillBar, stats.MaxHealth, stats.Health, FullHp, HalfHp, QuartHp);
+        Updater.HeartUpdate(HealthBar, FillBar, stats.maxHealth, stats.health, FullHp, HalfHp, QuartHp);
     }
 }

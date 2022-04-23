@@ -3,16 +3,16 @@ using UnityEngine;
 public class WalkingController : MonoBehaviour
 {
     public bool isTriggered;
-    private float Speed;
+    private float speed;
 
-    public float RandomNum;
+    public float randomNum;
     public float xmov;
     public float ymov;
-    public float Cooldown;
+    public float cooldown;
 
     void Start()
     {
-        Speed = GetComponent<EnemyStats> ().Speed;
+        speed = GetComponent<EnemyStats> ().speed;
     }
 
     // Update is called once per frame
@@ -28,16 +28,16 @@ public class WalkingController : MonoBehaviour
     }
 
     void RandomMovement(){
-        if(Cooldown <= 0){      
+        if(cooldown <= 0){      
 
-            Cooldown = Mathf.Round(Random.Range(3, 8));
+            cooldown = Mathf.Round(Random.Range(3, 8));
             xmov = Mathf.Round(Random.Range(-1, 1));
             ymov = Mathf.Round(Random.Range(-1, 1));
         }   else{
             
-            transform.Translate(xmov * Speed * Time.deltaTime, ymov * Speed * Time.deltaTime, 0);
+            transform.Translate(xmov * speed * Time.deltaTime, ymov * speed * Time.deltaTime, 0);
 
-            Cooldown -= Time.deltaTime;
+            cooldown -= Time.deltaTime;
         }
     }
 
@@ -45,6 +45,6 @@ public class WalkingController : MonoBehaviour
         GameObject PlayerPos = GameObject.FindGameObjectWithTag("Player");
         Vector3 directionShouldGo = (PlayerPos.transform.position - transform.position).normalized;
 
-        transform.Translate(directionShouldGo * Speed * Time.deltaTime);
+        transform.Translate(directionShouldGo * speed * Time.deltaTime);
     }
 }

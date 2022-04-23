@@ -3,80 +3,80 @@ using UnityEngine.UI;
 
 public class ShadowBossAI : MonoBehaviour
 {
-    public GameObject Shadow;
-    private float AmountOfMobs;
+    public GameObject shadow;
+    private float amountOfMobs;
 
-    public float Cooldown;
-    public float ResCooldown;
+    public float cooldown;
+    public float resCooldown;
 
-    public GameObject[] Lamps;
+    public GameObject[] lamps;
     private bool isPlayer;
 
-    EnemyStats Stats;
-    RandomTextPicker RandomText;
-    public Text BossDeathText;
+    EnemyStats stats;
+    RandomTextPicker randomText;
+    public Text bossDeathText;
 
     void Start()
     {
-        Lamps = GameObject.FindGameObjectsWithTag("LightSource");
-        RandomText = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<RandomTextPicker> ();
-        Stats = GetComponent<EnemyStats> ();
+        lamps = GameObject.FindGameObjectsWithTag("LightSource");
+        randomText = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<RandomTextPicker> ();
+        stats = GetComponent<EnemyStats> ();
     }
 
     // Update is called once per frame
     void Update()
     {
-        isPlayer = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MapLocalizationController> ().isPlayerThere[0];
+        isPlayer = GameObject.FindGameObjectWithTag("MapLocalization").GetComponent<MapLocalizationController> ().isPlayerThere[0];
 
         if(isPlayer){
             SpawnMobs();
             Lamp();
         } 
 
-        if(Stats.Health <= 0){
+        if(stats.health <= 0){
             Death();
         }
     }
 
     void SpawnMobs(){
-        if(Cooldown <= 0){      
+        if(cooldown <= 0){      
 
-            Cooldown = ResCooldown;
-            AmountOfMobs = Mathf.Round(Random.Range(1, 4));
+            cooldown = resCooldown;
+            amountOfMobs = Mathf.Round(Random.Range(1, 4));
 
-            for (int i = 0; i < AmountOfMobs; i++)
+            for (int i = 0; i < amountOfMobs; i++)
             {
                 float XPos = Mathf.Round(Random.Range(-2, 2));
                 float YPos = Mathf.Round(Random.Range(-2, 2));
                 Vector2 RandomPos = new Vector2(transform.position.x + XPos, transform.position.y + YPos); 
 
-                Instantiate(Shadow, RandomPos, Quaternion.identity);
+                Instantiate(shadow, RandomPos, Quaternion.identity);
             }
         }   else{
 
-            Cooldown -= Time.deltaTime;
+            cooldown -= Time.deltaTime;
         }
     }
 
     void Death(){
-        BossDeathText.enabled = true;
+        bossDeathText.enabled = true;
 
-        if(Cooldown <= 0){      
-            BossDeathText.enabled = false;
+        if(cooldown <= 0){      
+            bossDeathText.enabled = false;
             
         }   else{
-            RandomText.RandomPick(BossDeathText, false);
-            Cooldown -= Time.deltaTime;
+            randomText.RandomPick(bossDeathText, false);
+            cooldown -= Time.deltaTime;
         }
     }
 
     void Lamp(){
-        foreach (GameObject isLight in Lamps)
+        foreach (GameObject isLight in lamps)
         {
             if(!isLight.GetComponent<LanternController> ().isTurnedOn){
                 break;
             }   else{
-                Stats.Health -= Lamps.Length;
+                stats.health -= lamps.Length;
             }
         }
     }

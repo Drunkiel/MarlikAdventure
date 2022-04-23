@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class Teleport : MonoBehaviour
 {
-    public Transform PointToTeleport;
+    public Transform pointToTeleport;
 
-    public float Cooldown;
+    public float cooldown;
     public bool isTriggered;
 
     // Update is called once per frame
@@ -15,19 +15,19 @@ public class Teleport : MonoBehaviour
         if(isTriggered){
             Teleportation();
         }   else{
-            Cooldown = 5f;
+            cooldown = 5f;
         } 
     }
 
     void Teleportation(){
-        if(Cooldown <= 0){      
+        if(cooldown <= 0){      
             GameObject PlayerPos = GameObject.FindGameObjectWithTag("Player");
-            PlayerPos.transform.position = PointToTeleport.position;
+            PlayerPos.transform.position = pointToTeleport.position;
 
-            Cooldown =  5;
+            cooldown =  5;
         }   else{
 
-            Cooldown -= Time.deltaTime;
+            cooldown -= Time.deltaTime;
         }
     }
 }

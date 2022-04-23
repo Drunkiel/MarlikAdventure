@@ -3,20 +3,20 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     public bool isTriggered;
-    private float Damage;
-    public float AttackRange;
+    private float damage;
+    public float attackRange;
 
-    public float Cooldown;
-    private float ResCooldown;
+    public float cooldown;
+    private float resCooldown;
 
-    public Transform AttackPoint;
-    public LayerMask PlayerLayer;
+    public Transform attackPoint;
+    public LayerMask playerLayer;
 
     // Start is called before the first frame update
     void Start()
     {
-        ResCooldown = Cooldown;
-        Damage = GetComponent<EnemyStats> ().Damage;
+        resCooldown = cooldown;
+        damage = GetComponent<EnemyStats> ().damage;
     }
 
     // Update is called once per frame
@@ -27,23 +27,23 @@ public class EnemyAttack : MonoBehaviour
         if(isTriggered){
             Attack();
         }   else{
-            Cooldown = ResCooldown;
+            cooldown = resCooldown;
         }
     }
 
     void Attack(){
         //Detecting player
-        Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(AttackPoint.position, AttackRange, PlayerLayer);
+        Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
         
         //Do damage to player
         foreach(Collider2D player in hitPlayer){
-            if(Cooldown <= 0){      
-                player.GetComponent<StatsController>().TakeDamage(Damage);               
-                Cooldown = ResCooldown;
+            if(cooldown <= 0){      
+                player.GetComponent<StatsController>().TakeDamage(damage);               
+                cooldown = resCooldown;
 
             }   else{
 
-                Cooldown -= Time.deltaTime;
+                cooldown -= Time.deltaTime;
             }
         }
     }

@@ -3,8 +3,8 @@ using UnityEngine.UI;
 
 public class EnemyHealthBar : MonoBehaviour
 {
-    private Slider HealthBar;
-    private Image FillBar;
+    private Slider healthBar;
+    private Image fillBar;
 
     public Color FullHp, HalfHp, QuartHp;
 
@@ -16,12 +16,12 @@ public class EnemyHealthBar : MonoBehaviour
     {
         Updater = GameObject.FindGameObjectWithTag("MainCamera").transform.GetChild(0).GetComponent<HealthUpdate> ();
         stats = this.transform.parent.transform.GetChild(0).GetComponent<EnemyStats> ();
-        HealthBar = this.transform.GetChild(0).GetComponent<Slider> ();
-        FillBar = this.transform.GetChild(0).GetChild(1).GetChild(0).GetComponent<Image> ();
+        healthBar = this.transform.GetChild(0).GetComponent<Slider> ();
+        fillBar = this.transform.GetChild(0).GetChild(1).GetChild(0).GetComponent<Image> ();
     }
 
     void FixedUpdate()
     {
-         Updater.HeartUpdate(HealthBar, FillBar, stats.MaxHealth, stats.Health, FullHp, HalfHp, QuartHp);
+         Updater.HeartUpdate(healthBar, fillBar, stats.maxHealth, stats.health, FullHp, HalfHp, QuartHp);
     }
 }

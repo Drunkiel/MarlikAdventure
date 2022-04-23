@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class EnemyStats : MonoBehaviour
 {
-    public float Health;
-    public float MaxHealth;
-    public float Speed;
-    public float Damage;
+    public float health;
+    public float maxHealth;
+    public float speed;
+    public float damage;
 
     private SpriteRenderer EnemySprite;
 
@@ -13,13 +13,13 @@ public class EnemyStats : MonoBehaviour
     void Start()
     {
         EnemySprite = GetComponent<SpriteRenderer> ();
-        MaxHealth = Health;
+        maxHealth = health;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Health <= 0){
+        if(health <= 0){
             Die();
         }
     }
@@ -30,6 +30,6 @@ public class EnemyStats : MonoBehaviour
     }
 
     public void TakeDamage(float amount){
-        Health -= amount;
+        health -= amount;
     }
 }

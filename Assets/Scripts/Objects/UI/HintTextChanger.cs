@@ -13,11 +13,11 @@ public class HintTextChanger : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D trig){
         if(trig.gameObject.CompareTag("Item")){
-            Hint.text = TextToPick.PickupHint;
+            Hint.text = TextToPick.pickupHint;
         }
 
         if(trig.gameObject.CompareTag("Talkative")){
-            Hint.text = TextToPick.TalkHint;
+            Hint.text = TextToPick.talkHint;
         }
     }
 }

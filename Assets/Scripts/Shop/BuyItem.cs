@@ -14,7 +14,7 @@ public class BuyItem : MonoBehaviour
     }
 
     public void Buy(){
-        int PlayerCash = GameObject.FindGameObjectWithTag("Player").GetComponent<StatsController> ().Cash;
+        int PlayerCash = GameObject.FindGameObjectWithTag("Player").GetComponent<StatsController> ().cash;
         
         if(PlayerCash >= Cost){
             SpawnItem Spawn = GameObject.FindGameObjectWithTag("Shop").GetComponent<SpawnItem> ();

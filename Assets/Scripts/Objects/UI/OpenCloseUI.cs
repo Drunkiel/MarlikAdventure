@@ -7,15 +7,15 @@ public class OpenCloseUI : MonoBehaviour
     public bool isUIOpen;
 
     public bool isTriggered;
-    public bool EnableAutoClosing;
-    public GameObject ObjectToTest;
+    public bool enableAutoClosing;
+    public GameObject objectToTest;
 
     // Update is called once per frame
     void Update()
     {    
         OpenClose();
-        if(EnableAutoClosing){
-            isTriggered = ObjectToTest.GetComponent<TriggerController> ().isTriggered;
+        if(enableAutoClosing){
+            isTriggered = objectToTest.GetComponent<TriggerController> ().isTriggered;
             AutoClosing();
         }
     }

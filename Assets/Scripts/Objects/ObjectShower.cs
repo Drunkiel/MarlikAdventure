@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ObjectShower : MonoBehaviour
 {
-    public GameObject ObjectToShow;
+    public GameObject objectToShow;
     public bool isTriggered;
 
     // Update is called once per frame
@@ -11,9 +11,9 @@ public class ObjectShower : MonoBehaviour
         isTriggered = GetComponent<TagChecker> ().isTriggered;
 
         if(isTriggered){
-            ObjectToShow.SetActive(true);
+            objectToShow.SetActive(true);
         }   else{
-            ObjectToShow.SetActive(false);
+            objectToShow.SetActive(false);
         }
     }
 }
