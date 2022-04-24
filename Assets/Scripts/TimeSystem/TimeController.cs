@@ -1,18 +1,28 @@
 using UnityEngine;
+using TMPro;
 
 public class TimeController : MonoBehaviour
 {
     public int countOfDays;
+    public int countOfHours;
     public int gameTime;
     public float actualTime;
 
+    public TMP_Text clockHour;
+
     StatsController stats;
+    public LuckController luckController;
+
+    void Start()
+    {
+        stats = GameObject.FindGameObjectWithTag("Player").GetComponent<StatsController> ();
+    }
 
     // Update is called once per frame
     void Update()
     {
         Timer();
-        stats = GameObject.FindGameObjectWithTag("Player").GetComponent<StatsController> ();
+        UpdateClock();
     }
 
     void Timer(){
@@ -28,18 +38,31 @@ public class TimeController : MonoBehaviour
         //Hours
         if(gameTime >= 60){
             gameTime -= 60;
-            gameTime += 100;
+            countOfHours++;
         }
 
         //Days
-        if(gameTime >= 2400){
+        if(countOfHours >= 24){
+            countOfHours = 0;
+            luckController.DrawLuck();
             countOfDays += 1;
-            gameTime = 0;
         }
     }
 
+    void UpdateClock(){
+        string NewTime;
+
+        if(gameTime == 0){
+            NewTime = countOfHours.ToString() + "," + "00"; 
+        }   else{
+            NewTime = countOfHours.ToString() + "," + gameTime.ToString();
+        }
+
+        clockHour.text = NewTime;
+    }
+
     public void SkipDay(){
-        gameTime += 900;
+        countOfHours += 9;
         stats.energy = stats.maxEnergy;
     }
 }
