@@ -1,26 +1,33 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LuckController : MonoBehaviour
 {
-    public int TodaysLuck;
+    public int todaysLuck;
+    public Sprite[] luckImages;
+    public Image imageRepresentation;
 
     public void DrawLuck(){
-        TodaysLuck = (int)Mathf.Round(Random.Range(1, 4));
+        todaysLuck = (int)Mathf.Round(Random.Range(0, 5));
+        imageRepresentation.sprite = luckImages[todaysLuck];
 
-        // switch(TodaysLuck)
-        // {
-        //     case 1:
-
-        //         break;
-        //     case 2:
-
-        //         break;
-        //     case 3:
-
-        //         break;
-        //     case 4:
-
-        //         break;
-        // }
+        switch(todaysLuck)
+        {
+            case 0:
+                //Very bad luck
+                break;
+            case 1:
+                //Bad luck
+                break;
+            case 2:
+                //Neutral luck
+                break;
+            case 3:
+                //Good luck 
+                break;
+            case 4:
+                //Very good luck
+                break;
+        }
     }
 }
