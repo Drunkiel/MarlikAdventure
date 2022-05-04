@@ -8,7 +8,7 @@ public class SaveLoad : MonoBehaviour
     DataManager moreGameData;
 
     void Start(){
-        jsonSavePath = Application.persistentDataPath + "/Settings.json";
+        jsonSavePath = Application.persistentDataPath + "/PlayerStats.json";
         moreGameData = GetComponent<DataManager> ();
         gameData = GetComponent<DataToSave> ();
     }
@@ -28,7 +28,7 @@ public class SaveLoad : MonoBehaviour
     }
 
     public void Load(){
-        string json = ReadFromFile("Settings.json");
+        string json = ReadFromFile("PlayerStats.json");
         JsonUtility.FromJsonOverwrite(json, gameData);
         moreGameData.LoadGame();
     }

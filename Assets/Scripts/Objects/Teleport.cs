@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Teleport : MonoBehaviour
 {
@@ -13,6 +12,7 @@ public class Teleport : MonoBehaviour
     
     #nullable disable
     public SaveLoad saveLoad;
+    public LoadScene loadScene;
 
     // Update is called once per frame
     void Update()
@@ -33,7 +33,7 @@ public class Teleport : MonoBehaviour
                 PlayerPos.transform.position = pointToTeleport.position;
             }   else{
                 saveLoad.Save();
-                SceneManager.LoadScene(sceneName);
+                StartCoroutine(loadScene.Load_Start(sceneName));
             }
 
             cooldown =  5;

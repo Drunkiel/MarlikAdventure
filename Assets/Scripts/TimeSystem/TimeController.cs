@@ -12,6 +12,7 @@ public class TimeController : MonoBehaviour
 
     StatsController stats;
     public LuckController luckController;
+    public SaveLoad saveLoad;
 
     void Start()
     {
@@ -29,7 +30,7 @@ public class TimeController : MonoBehaviour
         actualTime += Time.deltaTime;
 
         //Minutes
-        if(actualTime >= 10){
+        if(actualTime >= 15){
             gameTime += 10;
             actualTime = 0;
             stats.energy -= 10;
@@ -44,8 +45,8 @@ public class TimeController : MonoBehaviour
         //Days
         if(countOfHours >= 24){
             countOfHours = 0;
-            luckController.DrawLuck();
             countOfDays += 1;
+            luckController.DrawLuck();
         }
     }
 
@@ -64,5 +65,6 @@ public class TimeController : MonoBehaviour
     public void SkipDay(){
         countOfHours += 9;
         stats.energy = stats.maxEnergy;
+        saveLoad.Save();
     }
 }
