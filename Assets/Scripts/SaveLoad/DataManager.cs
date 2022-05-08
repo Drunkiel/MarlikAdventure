@@ -6,17 +6,19 @@ public class DataManager : MonoBehaviour
 
     DataToSave gameData;
     ItemsToSave itemsData;
+    FromScenesToSave scenesData;
     StatsController stats;
 
     void Start()
     {
-        gameData= GetComponent<DataToSave> ();
+        gameData = GetComponent<DataToSave> ();
         itemsData = GetComponent<ItemsToSave> ();
+        scenesData = GetComponent<FromScenesToSave> ();
         stats = GameObject.FindGameObjectWithTag("Player").GetComponent<StatsController> ();
     }
 
     public void SaveGame(){
-        gameData.playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform> ().position;
+        gameData.playerSavedPosition[scenesData.sceneId] = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform> ().position;
         gameData.playerCash = stats.cash;
         gameData.experience = stats.experience;
 
@@ -24,7 +26,7 @@ public class DataManager : MonoBehaviour
     }
 
     public void LoadGame(){
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Transform> ().position = gameData.playerPos;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Transform> ().position = gameData.playerSavedPosition[scenesData.sceneId];
         stats.cash = gameData.playerCash;
         stats.experience = gameData.experience;
 

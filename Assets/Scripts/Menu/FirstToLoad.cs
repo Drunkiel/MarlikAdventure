@@ -9,6 +9,6 @@ public class FirstToLoad : MonoBehaviour
     void Start()
     {
         StartCoroutine(loadScene.Load_End());
-        // saveLoad.Load();
+        saveLoad.Load();
     }
 }
