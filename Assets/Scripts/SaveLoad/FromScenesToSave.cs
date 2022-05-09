@@ -12,10 +12,9 @@ public class FromScenesToSave : MonoBehaviour
     void Start()
     {
         gameData = GetComponent<DataToSave> ();
-        GetCurrentSceneName();
     }
 
-    void GetCurrentSceneName(){
+    public void GetCurrentSceneName(){
         currentScene = SceneManager.GetActiveScene().name;
 
         for (int i = 0; i < gameData.scenesNames.Length; i++)

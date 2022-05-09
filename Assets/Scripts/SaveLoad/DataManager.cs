@@ -26,6 +26,7 @@ public class DataManager : MonoBehaviour
     }
 
     public void LoadGame(){
+        scenesData.GetCurrentSceneName();
         GameObject.FindGameObjectWithTag("Player").GetComponent<Transform> ().position = gameData.playerSavedPosition[scenesData.sceneId];
         stats.cash = gameData.playerCash;
         stats.experience = gameData.experience;
