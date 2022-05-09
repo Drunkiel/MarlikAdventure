@@ -11,6 +11,7 @@ public class SaveLoad : MonoBehaviour
         jsonSavePath = Application.persistentDataPath + "/PlayerStats.json";
         moreGameData = GetComponent<DataManager> ();
         gameData = GetComponent<DataToSave> ();
+        FirstEverLoad();
     }
     
     public void Save(){
@@ -31,6 +32,13 @@ public class SaveLoad : MonoBehaviour
         string json = ReadFromFile("PlayerStats.json");
         JsonUtility.FromJsonOverwrite(json, gameData);
         moreGameData.LoadGame();
+    }
+
+    void FirstEverLoad(){
+        if(!File.Exists(jsonSavePath)){
+            moreGameData.FirstAutoSave();
+            Save();
+        }
     }
 
     private string ReadFromFile(string FileName){

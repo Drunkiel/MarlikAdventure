@@ -25,6 +25,13 @@ public class DataManager : MonoBehaviour
         itemsData.SaveItems();
     }
 
+    public void FirstAutoSave(){
+        gameData.playerSavedPosition[0] = new Vector2(0f, 0f);
+        gameData.playerSavedPosition[1] = new Vector2(-6.53f, -6.6f);
+        gameData.playerSavedPosition[2] = new Vector2(0f, -3.5f);
+        gameData.playerSavedPosition[3] = new Vector2(-40.5f, -18.54f);
+    }
+
     public void LoadGame(){
         scenesData.GetCurrentSceneName();
         GameObject.FindGameObjectWithTag("Player").GetComponent<Transform> ().position = gameData.playerSavedPosition[scenesData.sceneId];

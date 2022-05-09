@@ -3,8 +3,8 @@ using UnityEngine;
 [System.Serializable]
 public class DataToSave : MonoBehaviour
 {
-    public string[] scenesNames;
-    public Vector2[] playerSavedPosition;
+    public static string[] scenesNames = new string[] {"SampleScene", "City", "PlayerHouse", "ShadowBiom"};
+    public Vector2[] playerSavedPosition = new Vector2[scenesNames.Length];
     public int playerCash;
     public float experience;
 
