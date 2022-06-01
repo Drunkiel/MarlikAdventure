@@ -12,6 +12,7 @@ public class MissionDesc : MonoBehaviour
     public Image imageToReplace;
     public TMP_Text awardToReplace;
     public TMP_Text descriptionToReplace;
+    private Button btn;
 
     //!Now for tests
     public TestMission mission;
@@ -25,19 +26,21 @@ public class MissionDesc : MonoBehaviour
         imageToReplace = image;
         awardToReplace.text = award.ToString();
         descriptionToReplace.text = description;
+        btn = GetComponent<Button> ();
+        btn.onClick.AddListener(misController.AcceptMission);
     }
 
     void Update()
     {
-        OnMouseDown();
+        if(Input.GetMouseButton(0)){
+            MouseDownEvent();
+        }
     }
 
-    void OnMouseDown(){
-        misController.misDesc = GetComponent<MissionDesc> ();
-        misController.btn = GetComponent<Button> ();
-
-        if(misController.misDesc != null){
-            mission.isMissionActive = true;
+    void MouseDownEvent(){
+        if(misController.idOfActiveMission == 0){
+            misController.misDesc = GetComponent<MissionDesc> ();
+            misController.btn = GetComponent<Button> ();
         }
     }
 }

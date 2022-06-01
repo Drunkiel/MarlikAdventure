@@ -6,7 +6,14 @@ public class TestMission : MonoBehaviour
     public bool isMissionActive;
     public bool isMissionDone;
 
+    MissionController misController;
+
     public int clicks;
+
+    void Start()
+    {
+        misController = transform.parent.parent.GetComponent<MissionController> ();
+    }
 
     void Update()
     {
@@ -18,12 +25,12 @@ public class TestMission : MonoBehaviour
             clicks++;
             if(clicks >= 5){
                 isMissionDone = true;
+                isMissionActive = false;
             }
         }
 
         if(isMissionDone){
-            isMissionActive = false;
-            clicks = 0;
+            misController.CompleteMission();
         }
     }
 }
