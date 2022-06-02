@@ -8,21 +8,20 @@ public class MissionDesc : MonoBehaviour
     public Image image;
     public int award;
     public string description;
+    public bool isMissionActive;
+    public bool isMissionDone;
 
     public Image imageToReplace;
     public TMP_Text awardToReplace;
     public TMP_Text descriptionToReplace;
     private Button btn;
 
-    //!Now for tests
-    public TestMission mission;
     MissionController misController;
 
     // Start is called before the first frame update
     void Start()
     {
         misController = transform.parent.parent.GetComponent<MissionController> ();
-        award = mission.award;
         imageToReplace = image;
         awardToReplace.text = award.ToString();
         descriptionToReplace.text = description;

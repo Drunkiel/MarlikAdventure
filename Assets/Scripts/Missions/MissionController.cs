@@ -23,12 +23,12 @@ public class MissionController : MonoBehaviour
         }   else{
             btn.interactable = false;
             idOfActiveMission = misDesc.id;
-            misDesc.mission.isMissionActive = true;
+            misDesc.isMissionActive = true;
         }
     }
 
     public void CompleteMission(){
-        if(misDesc.mission.isMissionDone){
+        if(misDesc.isMissionDone){
             stats.cash += misDesc.award;
             Destroy(gameObject.transform.GetChild(0).GetChild(0).gameObject);
             idOfActiveMission = 0;
