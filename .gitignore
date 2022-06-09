@@ -63,6 +63,7 @@ ExportedObj/
 *.tss
 *.Flow
 *.vscode
+*.vsconfig
 *.ttf
 
 # Unity3D generated meta files
