@@ -5,10 +5,13 @@ using UnityEngine.UI;
 public class SpawnerBossBasics
 {
     public GameObject mobToSpawn;
-    public float amountOfMobs;
+    public int amountOfMobs;
 
     public float cooldown;
     public float resCooldown;
+
+    public float minTime;
+    public float maxTime;
 
     public GameObject[] objectsToCheck;
     public bool isPlayer;
@@ -16,4 +19,6 @@ public class SpawnerBossBasics
     public EnemyStats stats;
     public RandomTextPicker randomText;
     public Text bossDeathText;
+    public GameObject main;
+
 }
